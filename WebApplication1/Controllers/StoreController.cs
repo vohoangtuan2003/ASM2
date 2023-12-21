@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +27,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Store/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Products == null)
@@ -64,7 +66,7 @@ namespace WebApplication1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", product.AuthorId);
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", product.AuthorName);
             return View(product);
         }
 
@@ -81,7 +83,7 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", product.AuthorId);
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", product.AuthorName);
             return View(product);
         }
 
@@ -117,7 +119,7 @@ namespace WebApplication1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", product.AuthorId);
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", product.AuthorName);
             return View(product);
         }
 

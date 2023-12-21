@@ -4,57 +4,240 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BookPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BookPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BookImage)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BookImage)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PublishedYear)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PublishedYear)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AuthorNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AuthorNavigation.AuthorId)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index" class="btn btn-warning"><i class="fa-solid fa-backward"></i> Back </a>
-</div>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <link href="/lib/template2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/lib/template2/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/lib/template2/css/slick.css" />
+    @*
+    <link href="/lib/template2/css/tooplate-little-fashion.css" rel="stylesheet"> *@
+
+    <link rel="stylesheet" href="~/lib/fontawesome-free-6.0.0-web/css/all.css" />
+
+    <!--
+
+    Tooplate 2127 Little Fashion
+
+    https://www.tooplate.com/view/2127-little-fashion
+
+    -->
+</head>
+
+<body>
+
+    <section class="preloader">
+        <div class="spinner">
+            <span class="sk-inner-circle"></span>
+        </div>
+    </section>
+
+    <main>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+
+                <div class="d-lg-none">
+                    <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+
+                    <a href="product-detail.html" class="bi-bag custom-icon"></a>
+                </div>
+
+
+            </div>
+        </nav>
+
+        <header class="site-header section-padding d-flex justify-content-center align-items-center">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-10 col-12">
+                        <h1>
+                            <span class="d-block text-primary">We provide you</span>
+                            <span class="d-block text-dark">Books in our store</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="product-detail section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12">
+                        <div class="product-thumb">
+                            <img src="images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg" class="img-fluid product-image" alt="">
+                            <img src="/uploads/@Html.DisplayFor(modelitem => Model.BookImage)" alt="user" style="height: 600px">
+                        </div>
+                        <hr width="90%" align="center" />
+                        <div class="col-lg-10 col-18">
+                            <dt class="col-sm-3">
+                               
+                                Description:
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Html.DisplayFor(model => model.Description)
+                            </dd>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="product-info d-flex">
+                            <div>
+                                <dt class="col-sm-3">
+                                    Name:
+                                </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Name)
+                                </dd>
+
+                                <P> <dt class="col-sm-3">
+                                        @* @Html.DisplayNameFor(model => model.Title) *@
+                                    Title:
+                                </dt>
+                                </P>
+                                <p class="product-p">  @Html.DisplayFor(model => model.Title)</p>
+
+                                <P> <dt class="col-sm-3">
+                                    Author:
+                                </dt>
+                                </P>
+                                <p class="product-p">  @Html.DisplayFor(model => model.AuthorName)</p>
+                                <p class="lead mb-4">
+                                @* <dt class="col-sm-3">
+                                        
+                                    Description:
+                                </dt>
+                                <dd class="col-sm-9">
+                                        @Html.DisplayFor(model => model.Description)
+                                </dd> *@
+                                </p>
+                                <dt class="col-sm-5">
+                                    Price:
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @Html.DisplayFor(model => model.BookPrice)
+                                </dd>
+                                <div class="product-cart-thumb row">
+                                    @* <div class="col-lg-6 col-12">
+
+                                        <select class="form-select cart-form-select" id="inputGroupSelect01">
+                                            <option selected>Quantity</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div> *@
+
+                                    <div>
+                                        <a asp-action="Edit" asp-route-id="@Model?.Id" class=" btn btn-primary ">Edit</a> |
+                                        <a asp-action="Index" class="btn btn-warning"><i class="fa-solid fa-backward"></i> Back </a>
+                                    </div>
+                                    <p>
+                                        @* <a href="#" class="product-additional-link">Details</a> *@
+
+                                        @* <a href="#" class="product-additional-link">Delivery and Payment</a> *@
+                                    </p>
+                                </div>
+                            </div>
+
+                            @*  <small class="product-price text-muted ms-auto mt-auto mb-5">
+                            <dt class="col-sm-4">
+                            Price
+                            </dt>
+                            <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.BookPrice )
+                            </dd>
+
+                            </small>
+
+                            </div>
+
+                            <div class="product-description">
+
+
+
+                            <p class="lead mb-5">
+                            <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Description )
+                            </dt>
+                            <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Description)
+                            </dd>
+                            </p>
+                            </div>
+                            *@
+
+                            @*   <div class="product-cart-thumb row">
+                            <div class="col-lg-6 col-12">
+
+                            <select class="form-select cart-form-select" id="inputGroupSelect01">
+                            <option selected>Quantity</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            </select>
+                            </div>
+
+                            <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+                            <button type="submit" class="btn btn-danger custom-btn cart-btn" data-bs-toggle="modal" data-bs-target="#cart-modal"> <i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                            </div>
+
+                            <p>
+                            <a href="#" class="product-additional-link">Details</a>
+
+                            <a href="#" class="product-additional-link">Delivery and Payment</a>
+                            </p>
+                            </div>
+                            *@
+                        </div>
+
+                    </div>
+                </div>
+        </section>
+
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="/lib/template2/js/jquery.min.js "></script>
+    <script src="/lib/template2/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/template2/js/Headroom.js"></script>
+    <script src="/lib/template2/js/jQuery.headroom.js"></script>
+    <script src="/lib/template2/js/slick.min.js"></script>
+    <script src="/lib/template2/js/custom.js"></script>
+
+</body>
+</html>
+
+
+
+

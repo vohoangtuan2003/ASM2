@@ -58,7 +58,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Title,Description,BookPrice,BookImage,PublishedYear,AuthorId")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,Title,AuthorName,BookPrice,BookImage,PublishedYear,AuthorId,Description")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace WebApplication1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", product.AuthorId);
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", product.AuthorName);
             return View(product);
         }
 
@@ -83,7 +83,7 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", product.AuthorId);
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", product.AuthorName);
             return View(product);
         }
 
@@ -92,7 +92,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Title,Description,BookPrice,BookImage,PublishedYear,AuthorId")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Title,AuthorName,BookPrice,BookImage,PublishedYear,AuthorId,Description")] Product product)
         {
             if (id != product.Id)
             {
@@ -119,7 +119,7 @@ namespace WebApplication1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", product.AuthorId);
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", product.AuthorName);
             return View(product);
         }
 

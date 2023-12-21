@@ -18,12 +18,24 @@ namespace WebApplication1.Controllers
         }
 
         // Hành động Index để hiển thị danh sách người dùng
-        public IActionResult Index()
+        //public IActionResult Index()
+        //{
+        //    var users = _userManager.Users.ToList();
+        //    return View(users);
+        //}
+        public async Task<IActionResult> Index()
         {
-            var users = _userManager.Users.ToList();
-            return View(users);
+            if (User.IsInRole("Admin"))
+            {
+                var adminUsers = await _userManager.GetUsersInRoleAsync("User");
+                return View(adminUsers);
+            }
+            else
+            {
+                var customerUsers = await _userManager.GetUsersInRoleAsync("User");
+                return View(customerUsers);
+            }
         }
-
         // Các hành động khác như Create, Edit, Delete, ...
 
         // Ví dụ hành động Delete

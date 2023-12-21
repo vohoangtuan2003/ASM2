@@ -21,8 +21,8 @@ namespace WebApplication1.Data
 
         public int? PublishedYear { get; set; }
 
-        public int? AuthorId { get; set; }
-        [ForeignKey("AuthorId")]
+        public string? AuthorName { get; set; }
+        [ForeignKey("AuthorID")]
         public virtual Author? AuthorNavigation { get; set; }
 
         public virtual ICollection<OrderDetail> OwnerDetails { get; set; } = new List<OrderDetail>();

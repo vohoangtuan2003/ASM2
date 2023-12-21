@@ -24,10 +24,10 @@
             @Html.DisplayFor(model => model.Title)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.AuthorName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.AuthorName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.BookPrice)
@@ -47,12 +47,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.PublishedYear)
         </dd>
-        <dt class = "col-sm-2">
+        @* <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.AuthorNavigation)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.AuthorNavigation.AuthorId)
-        </dd>
+        </dd> *@
     </dl>
     
     <form asp-action="Delete">

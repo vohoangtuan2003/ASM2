@@ -33,7 +33,7 @@
                         @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Product Management</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Books Management</a>
                             </li>
                         }
                         @if (User.IsInRole("Admin"))
@@ -42,15 +42,15 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="ManageUser" asp-action="Index">User Management</a>
                             </li>
                         }
-                        @if (User.IsInRole("Admin"))
+                       @*  @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Inventory" asp-action="GetAll">Inventory</a>
                             </li>
 
-                        }
+                        } *@
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -64,11 +64,11 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+   @*  <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - WebApplication1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
+    </footer> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

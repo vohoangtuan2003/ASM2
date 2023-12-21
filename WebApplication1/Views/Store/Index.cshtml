@@ -3,9 +3,59 @@
 @{
     ViewData["Title"] = "Index";
 }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<h2 class="my-4 ">FPTBooks's Store </h2>
-<div class=" row">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <link href="/lib/template2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/lib/template2/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/lib/template2/css/slick.css" />
+    @*
+    <link href="/lib/template2/css/tooplate-little-fashion.css" rel="stylesheet"> *@
+
+    <link rel="stylesheet" href="~/lib/fontawesome-free-6.0.0-web/css/all.css" />
+    <link href="/css/fptbook.css" rel="stylesheet" type="text/css" media="all" />
+    <!--
+
+    Tooplate 2127 Little Fashion
+
+    https://www.tooplate.com/view/2127-little-fashion
+
+    -->
+</head>
+
+<header class="site-header section-padding d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-10 col-12">
+                <h1>
+                    <span style="color: white"><b>Wellcome to FPTBook's Store</b></span>
+                </h1>
+                <h4>
+                    <span style="color: cyan" class="d-block">Investing in knowledge is the best investment</span>
+                </h4>
+            </div>
+        </div>
+    </div>
+</header>
+
+<hr>
+<body>
+<div class=" row" >
     @foreach ( var book in Model)
     {
         <div class=" col-3"> 
@@ -18,12 +68,12 @@
                     </div>
                     <div class=" card-body">
                         <span class=" card-text"> @book.BookPrice.ToString()</span>
-                        <a asp-area="Identity" asp-page="/Account/Login" asp-route-id="@book.Id" class=" btn btn-primary float-right store-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+                        @* <a asp-area="Identity" asp-page="/Store/Details/" asp-route-id="@book.Id" class=" btn btn-primary float-right store-btn"><i class="fa-solid fa-cart-shopping"></i></a> *@
+                        <a  asp-controller="Store" asp-action="Details" asp-route-id="@book.Id" class=" btn btn-danger float-right store-btn"><i class="fa-solid fa-cart-shopping"></i></a>
                     </div>
                 </a>
             </div>
-            
         </div>
     }
-
-</div>
+    </div>
+</body>

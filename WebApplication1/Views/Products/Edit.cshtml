@@ -6,6 +6,312 @@
 
 <h1>Edit</h1>
 
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <link href="/lib/template2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/lib/template2/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/lib/template2/css/slick.css" />
+    @*
+    <link href="/lib/template2/css/tooplate-little-fashion.css" rel="stylesheet"> *@
+
+    <link rel="stylesheet" href="~/lib/fontawesome-free-6.0.0-web/css/all.css" />
+
+    <!--
+
+    Tooplate 2127 Little Fashion
+
+    https://www.tooplate.com/view/2127-little-fashion
+
+    -->
+</head>
+
+<body>
+
+    <section class="preloader">
+        <div class="spinner">
+            <span class="sk-inner-circle"></span>
+        </div>
+    </section>
+
+    <main>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+
+                <div class="d-lg-none">
+                    <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+
+                    <a href="product-detail.html" class="bi-bag custom-icon"></a>
+                </div>
+
+
+            </div>
+        </nav>
+
+        <header class="site-header section-padding d-flex justify-content-center align-items-center">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-10 col-12">
+                        <h1>
+                            <span class="d-block text-primary">We provide you</span>
+                            <span class="d-block text-dark">Books in our store</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="product-detail section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12">
+                        <div class="product-thumb">
+                            <img src="images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg" class="img-fluid product-image" alt="">
+                            <img src="/uploads/@Html.DisplayFor(modelitem => Model.BookImage)" alt="user" style="height: 500px ">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="product-info d-flex">
+                            <form asp-action="Edit">
+                            <div>
+                                    <div class="form-group " >
+                                        <label asp-for="Name" class="control-labe ">
+                                            <b>Name of the Book :</b>
+                                            </label>
+                                        <input asp-for="Name" class="form-control" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="BookImage" class="control-label"><b>Image of the Book:</b></label>
+                                        <input asp-for="BookImage" type="file" class="form-control" />
+                                        <span asp-validation-for="BookImage" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Title" class="control-label"><b>Title of the Book:</b></label>
+                                        <input asp-for="Title" class="form-control" />
+                                        <span asp-validation-for="Title" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="AuthorName" class="control-label"><b>Author of the Book:</b></label>
+                                        <select asp-for="AuthorName" class="form-control">
+                                            <option value="">-- Select Author --</option>
+                                            <option value="Hàn Mạc Tử">Hàn Mạc Tử</option>
+                                            <option value="Tô Hoài">Tô Hoài</option>
+                                            <option value="Thảo Trang">Thảo Trang</option>>
+                                            <option value="Zoe Mckey">Zoe Mckey</option>
+                                            <option value="Rowlling">Rowlling</option>
+                                            <option value="Exupery">Exupery</option>
+                                            <option value="Lê Huy Bắc">Lê Huy Bắc</option>
+                                            <option value="Robin Sharma">Robin Sharma</option>
+                                            <option value="Nguyễn Ngọc Ký">Nguyễn Ngọc Ký</option>
+                                            <option value="Yann Martel">Yann Martel</option>
+                                            <option value="Dương Tường">Dương Tường</option>
+                                            <option value="Edmondo  de Amicis">Edmondo  de Amicis</option>
+                                            <option value="Nguyễn Anh">Nguyễn Anh</option>
+                                            <option value="Dan Brown">Dan Brown</option>
+                                            <option value="Nguyên Phong">Nguyên Phong</option>
+                                            <option value="Phạm Huy Hoàng">Phạm Huy Hoàng</option>
+                                            <option value="Aoyama">Aoyama</option>
+                                            <option value="KIM Đồng">KIM Đồng</option>
+                                            <option value="Pobert Kirman">Pobert Kirman</option>
+
+                                        </select>
+
+                                        <span asp-validation-for="AuthorName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="PublishedYear" class="control-label"><b>Published Year:</b></label>
+                                        <br>
+                                        <select asp-for="PublishedYear" class="form-control">
+                                            <option value="">-- Select Year --</option>
+                                            <option value="2023">2010</option>
+                                            <option value="2023">2011</option>
+                                            <option value="2023">2012</option>
+                                            <option value="2023">2013</option>
+                                            <option value="2023">2014</option>
+                                            <option value="2023">2015</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2019">2019</option>>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                        </select>
+                                        <br>
+                                        <span asp-validation-for="PublishedYear" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label asp-for="Description" class="control-label "><b>Description:</b></label>
+
+                                        <input asp-for="Description" class="form-control" style=" width: 300px;
+height: 130px;
+border: 1px solid gray;
+box-sizing: border-box;" /><br />
+                                        <span asp-validation-for="Description" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="BookPrice" class="control-label"><b>Price of the Book:</b></label>
+                                        <input asp-for="BookPrice" class="form-control" />
+                                        <span asp-validation-for="BookPrice" class="text-danger"></span>
+                                    </div>
+                                <div class="product-cart-thumb row">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-danger custom-btn cart-btn"> <i class="fa-regular fa-floppy-disk"></i>Save</button>
+                                        </div>
+                                    <div>
+                                        <a asp-action="Index" class="btn btn-warning"><i class="fa-solid fa-backward"></i> Back </a>
+                                    </div>
+                                    <p>
+                                        @* <a href="#" class="product-additional-link">Details</a> *@
+
+                                        @* <a href="#" class="product-additional-link">Delivery and Payment</a> *@
+                                    </p>
+                                </div>
+                            </div>
+                            </form>
+                            @*  <small class="product-price text-muted ms-auto mt-auto mb-5">
+                            <dt class="col-sm-4">
+                            Price
+                            </dt>
+                            <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.BookPrice )
+                            </dd>
+
+                            </small>
+
+                            </div>
+
+                            <div class="product-description">
+
+
+
+                            <p class="lead mb-5">
+                            <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Description )
+                            </dt>
+                            <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Description)
+                            </dd>
+                            </p>
+                            </div>
+                            *@
+
+                            @*   <div class="product-cart-thumb row">
+                            <div class="col-lg-6 col-12">
+
+                            <select class="form-select cart-form-select" id="inputGroupSelect01">
+                            <option selected>Quantity</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            </select>
+                            </div>
+
+                            <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+                            <button type="submit" class="btn btn-danger custom-btn cart-btn" data-bs-toggle="modal" data-bs-target="#cart-modal"> <i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                            </div>
+
+                            <p>
+                            <a href="#" class="product-additional-link">Details</a>
+
+                            <a href="#" class="product-additional-link">Delivery and Payment</a>
+                            </p>
+                            </div>
+                            *@
+                        </div>
+
+                    </div>
+                </div>
+        </section>
+
+
+    </main>
+
+
+
+    <!-- CART MODAL -->
+    <div class="modal fade" id="cart-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0">
+                <div class="modal-header flex-column">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+                            <img src="/uploads/@Html.DisplayFor(modelitem => Model.BookImage)" class="img-fluid product-image" alt="">
+                        </div>
+
+                        <div class="col-lg-6 col-12 mt-3 mt-lg-0">
+                            <h3 class="modal-title" id="exampleModalLabel"> @Html.DisplayFor(model => model.Name)</h3>
+
+                            <p class="product-price text-muted mt-3"> @Html.DisplayFor(model => model.BookPrice) $</p>
+
+                            <p class="product-p">Quatity: <span class="ms-1">1</span></p>
+
+
+                            <div class="border-top mt-4 pt-3">
+                                <p class="product-p"><strong>Total: <span class="ms-1">@Html.DisplayFor(model => model.BookPrice) $</span></strong></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="row w-50">
+                        <a class="navbar-brand" asp-area="" asp-controller="Store" asp-action="Index">Check Out </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="/lib/template2/js/jquery.min.js "></script>
+    <script src="/lib/template2/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/template2/js/Headroom.js"></script>
+    <script src="/lib/template2/js/jQuery.headroom.js"></script>
+    <script src="/lib/template2/js/slick.min.js"></script>
+    <script src="/lib/template2/js/custom.js"></script>
+
+</body>
+</html>
+
+
+@* 
 <h4>Product</h4>
 <hr />
 <div class="row">
@@ -14,29 +320,34 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">Name of the Book :</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
+                <label asp-for="Title" class="control-label">Title of the Book:</label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+                <label asp-for="AuthorName" class="control-label">Author of the Book:</label>
+                <input asp-for="AuthorName" class="form-control" />
+                <span asp-validation-for="AuthorName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BookPrice" class="control-label"></label>
+                <label asp-for="BookPrice" class="control-label">Price of the Book:</label>
                 <input asp-for="BookPrice" class="form-control" />
                 <span asp-validation-for="BookPrice" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BookImage" class="control-label"></label>
+                <label asp-for="BookImage" class="control-label">Image of the Book:</label>
                 <input asp-for="BookImage" type="file" class="form-control" />
                 <span asp-validation-for="BookImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <img src="/uploads/@Html.DisplayFor(modelitem => Model.BookImage)" alt="user" style="height: 300px ">
+
             </div>
             <div class="form-group">
                 <label asp-for="PublishedYear" class="control-label"></label>
@@ -44,9 +355,9 @@
                 <span asp-validation-for="PublishedYear" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AuthorId" class="control-label"></label>
-                <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
-                <span asp-validation-for="AuthorId" class="text-danger"></span>
+                <label asp-for="Description" class="control-label">Description :</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -62,3 +373,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+ *@

@@ -3,59 +3,111 @@
 @{
     ViewData["Title"] = "Create";
 }
+<link href="/css/create.css" rel="stylesheet" type="text/css" media="all" />
+<body>
+    <h1>Add a New Book</h1>
 
-<h1>Create</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"><b>Book Name:</b><br>  </label>
+                    <input asp-for="Name" class="form-control" /><br>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"><b> Title of The Book:</b> </label>
+                    <input asp-for="Title" class="form-control" /><br>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AuthorName" class="control-label"><b>Author of the Book:</b> </label>
+                    <select asp-for="AuthorName" class="form-control">
+                        <option value="">-- Select Author --</option>
+                        <option value="Hàn Mạc Tử">Hàn Mạc Tử</option>
+                        <option value="Tô Hoài">Tô Hoài</option>
+                        <option value="Thảo Trang">Thảo Trang</option>>
+                        <option value="Zoe Mckey">Zoe Mckey</option>
+                        <option value="Rowlling">Rowlling</option>
+                        <option value="Exupery">Exupery</option>
+                        <option value="Lê Huy Bắc">Lê Huy Bắc</option>
+                        <option value="Robin Sharma">Robin Sharma</option>
+                        <option value="Nguyễn Ngọc Ký">Nguyễn Ngọc Ký</option>
+                        <option value="Yann Martel">Yann Martel</option>
+                        <option value="Dương Tường">Dương Tường</option>
+                        <option value="Edmondo  de Amicis">Edmondo  de Amicis</option>
+                        <option value="Nguyễn Anh">Nguyễn Anh</option>
+                        <option value="Dan Brown">Dan Brown</option>
+                        <option value="Nguyên Phong">Nguyên Phong</option>
+                        <option value="Phạm Huy Hoàng">Phạm Huy Hoàng</option>
+                        <option value="Aoyama">Aoyama</option>
+                        <option value="KIM Đồng">KIM Đồng</option>
+                        <option value="Pobert Kirman">Pobert Kirman</option>
 
-<h4>Product</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BookPrice" class="control-label"></label>
-                <input asp-for="BookPrice"  class="form-control" />
-                <span asp-validation-for="BookPrice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BookImage" class="control-label"></label>
-                <input asp-for="BookImage" type="file" class="form-control" />
-                <span asp-validation-for="BookImage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PublishedYear" class="control-label"></label>
-                <input asp-for="PublishedYear" class="form-control" />
-                <span asp-validation-for="PublishedYear" class="text-danger"></span>
-            </div>
-            @* <div class="form-group">
-                <label asp-for="AuthorId" class="control-label"></label>
-                <select asp-for="AuthorId" class ="form-control" asp-items="ViewBag.AuthorId"></select>
-            </div> *@
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                    </select>
+
+                    <span asp-validation-for="AuthorName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BookPrice" class="control-label"><b>Price of the Book </b> </label>
+                    <input asp-for="BookPrice" class="form-control" /><br>
+                    <span asp-validation-for="BookPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BookImage" class="control-label"><b>Image of the Book:</b> </label>
+                    <input asp-for="BookImage" type="file" class="form-control" /><br>
+                    <span asp-validation-for="BookImage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PublishedYear" class="control-label"><b>Published Year:</b></label>
+                    <br>
+                    <select asp-for="PublishedYear" class="form-control">
+                        <option value="">-- Select Year --</option>
+                        <option value="2023">2010</option>
+                        <option value="2023">2011</option>
+                        <option value="2023">2012</option>
+                        <option value="2023">2013</option>
+                        <option value="2023">2014</option>
+                        <option value="2023">2015</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                    </select>
+                    <br>
+                    <span asp-validation-for="PublishedYear" class="text-danger"></span>
+                </div>
+                @* <div class="form-group">
+                <label asp-for="AuthorName" class="control-label"></label>
+                <input asp-for="AuthorName" class="form-control" asp-items="ViewBag.AuthorId"></input>
+                <span asp-validation-for="AuthorName" class="text-danger"></span>
+                </div> *@
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label "><b>Description:</b></label>
+
+                    <input asp-for="Description" class="form-control" style=" width: 300px;
+height: 130px;
+border: 1px solid gray;
+box-sizing: border-box;" /><br />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" /><br>
+                </div>
+                <div>
+                    <a asp-action="Index" class="btn btn-warning"><i class="fa-solid fa-backward"></i> Back </a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index" class="btn btn-warning"><i class="fa-solid fa-backward"></i> Back </a>
-</div>
+</body>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

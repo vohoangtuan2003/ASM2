@@ -234,6 +234,10 @@ namespace WebApplication1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuthorId"));
 
+                    b.Property<string>("AuthorName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -281,8 +285,11 @@ namespace WebApplication1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AuthorId")
+                    b.Property<int?>("AuthorID")
                         .HasColumnType("int");
+
+                    b.Property<string>("AuthorName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BookImage")
                         .IsRequired()
@@ -308,7 +315,7 @@ namespace WebApplication1.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
+                    b.HasIndex("AuthorID");
 
                     b.ToTable("Product");
                 });
@@ -383,7 +390,7 @@ namespace WebApplication1.Migrations
                 {
                     b.HasOne("WebApplication1.Data.Author", "AuthorNavigation")
                         .WithMany("Products")
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("AuthorID");
 
                     b.Navigation("AuthorNavigation");
                 });
