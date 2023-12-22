@@ -10,54 +10,150 @@
 <div>
     <h4>Product</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AuthorName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AuthorName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BookPrice)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BookPrice)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BookImage)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BookImage)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PublishedYear)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PublishedYear)
-        </dd>
-        @* <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AuthorNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AuthorNavigation.AuthorId)
-        </dd> *@
-    </dl>
+    <section class="product-detail section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-12">
+                    <div class="product-thumb">
+                        <img src="images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg" class="img-fluid product-image" alt="">
+                        <img src="/uploads/@Html.DisplayFor(modelitem => Model.BookImage)" alt="user" style="height: 600px">
+                    </div>
+                    <hr width="90%" align="center" />
+                    @* <div class="col-lg-10 col-18">
+                        <dt class="col-sm-3">
+
+                            Description:
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+                    </div> *@
+                </div>
+
+                <div class="col-lg-6 col-12">
+                    <div class="product-info d-flex">
+                        <div>
+                            <dt class="col-sm-3">
+                                Name:
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Name)
+                            </dd>
+
+                            <P> <dt class="col-sm-3">
+                                    @* @Html.DisplayNameFor(model => model.Title) *@
+                                Title:
+                            </dt>
+                            </P>
+                            <p class="product-p">  @Html.DisplayFor(model => model.Title)</p>
+
+                            <P> <dt class="col-sm-3">
+                                Author:
+                            </dt>
+                            </P>
+                            <p class="product-p">  @Html.DisplayFor(model => model.AuthorName)</p>
+                            <p class="lead mb-4">
+                                <dt class="col-sm-3">
+
+                                Description:
+                                </dt>
+                                <dd class="col-sm-9">
+                                @Html.DisplayFor(model => model.Description)
+                                </dd>
+                            </p>
+                            <dt class="col-sm-5">
+                                Price:
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Html.DisplayFor(model => model.BookPrice)
+                            </dd>
+                            <div class="product-cart-thumb row">
+                                @* <div class="col-lg-6 col-12">
+
+                                <select class="form-select cart-form-select" id="inputGroupSelect01">
+                                <option selected>Quantity</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                </select>
+                                </div> *@
+
+                                <form asp-action="Delete">
+                                    <input type="hidden" asp-for="Id" />
+                                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                                    <a asp-action="Index" class="btn btn-warning"><i class="fa-solid fa-backward"></i> Back </a>
+                                </form>
+                                <p>
+                                    @* <a href="#" class="product-additional-link">Details</a> *@
+
+                                    @* <a href="#" class="product-additional-link">Delivery and Payment</a> *@
+                                </p>
+                            </div>
+                        </div>
+
+                        @*  <small class="product-price text-muted ms-auto mt-auto mb-5">
+                        <dt class="col-sm-4">
+                        Price
+                        </dt>
+                        <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.BookPrice )
+                        </dd>
+
+                        </small>
+
+                        </div>
+
+                        <div class="product-description">
+
+
+
+                        <p class="lead mb-5">
+                        <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Description )
+                        </dt>
+                        <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Description)
+                        </dd>
+                        </p>
+                        </div>
+                        *@
+
+                        @*   <div class="product-cart-thumb row">
+                        <div class="col-lg-6 col-12">
+
+                        <select class="form-select cart-form-select" id="inputGroupSelect01">
+                        <option selected>Quantity</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        </select>
+                        </div>
+
+                        <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+                        <button type="submit" class="btn btn-danger custom-btn cart-btn" data-bs-toggle="modal" data-bs-target="#cart-modal"> <i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                        </div>
+
+                        <p>
+                        <a href="#" class="product-additional-link">Details</a>
+
+                        <a href="#" class="product-additional-link">Delivery and Payment</a>
+                        </p>
+                        </div>
+                        *@
+                    </div>
+
+                </div>
+            </div>
+    </section>
     
-    <form asp-action="Delete">
+   @*  <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index" class="btn btn-warning"><i class="fa-solid fa-backward"></i> Back </a>
-    </form>
+    </form> *@
 </div>
